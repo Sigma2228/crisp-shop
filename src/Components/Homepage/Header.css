@@ -1,0 +1,20 @@
+header {
+    background-color: #000000;
+}
+#header-list {
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+    color: #FFFFFF;
+}
+.header-li {
+    margin-left: 25px;
+}
+#sign-wrap {
+    display: flex;
+    margin-left: 425px;
+}
+.sign-li {
+margin-left: 12px;
+}
