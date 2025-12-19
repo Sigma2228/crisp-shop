@@ -9,7 +9,7 @@ const sliderStyle = {
 }
 
     return (
-        <div className={sliderStyle}>
+        <div style={sliderStyle}>
         <h2>SUMMER SALE GET 30%OFF ON ALL DRESS</h2>
          <img src={img} alt="" />
 
