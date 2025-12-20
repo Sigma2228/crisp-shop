@@ -1,20 +1,30 @@
 import './App.css'
+import { useState } from 'react'
 import HomePage from './pages/HomePage.jsx'
 import data from "./data/productsData.json"
-import ProductList from "./Components/ProductList.jsx"
-
+import ProductList from './Components/product/ProductList.jsx'
 function App() {
-  return (
+   const [page, setPage] = useState(0);
+  const perPage = 4;
+  const productsToShow = data.data.slice(0, page * perPage);
+const hasMore = productsToShow.length < data.data.length;
+   return (
     <>
-      {Object.entries(data).map(([category, items]) => (
-        <ProductList
-          key={category}
-          title={category}
-          products={items}
-        />
-      ))}
+    <HomePage/>
+      <ProductList
+        title="Products"
+        products={productsToShow}
+      />
+
+      {hasMore ? (
+        <button onClick={() => setPage(prev => prev + 1)}>
+          Load more
+        </button>
+      ) : null}
+       
+      
     </>
-  )
+  );
 }
 
 export default App
