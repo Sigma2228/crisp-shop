@@ -1,5 +1,7 @@
 header {
+    width: 100vw;
     background-color: #000000;
+
 }
 #header-list {
     display: flex;
@@ -7,6 +9,8 @@ header {
     justify-content: center;
     align-items: center;
     color: #FFFFFF;
+    margin: 0;
+    padding: 0;
 }
 .header-li {
     margin-left: 25px;
