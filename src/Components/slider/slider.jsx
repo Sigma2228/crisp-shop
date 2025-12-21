@@ -3,6 +3,7 @@ import 'swiper/css/pagination';
 import { Navigation, Pagination } from 'swiper/modules';
 import background1 from '../../img/backgroundImage.png'
 import img1 from '../../img/image 2.png'
+import img2 from '../../img/image 3.png'
 import SwiperItem from './SwiperItem'
 import './slider.css'
 import React, { useRef, useState } from 'react';
@@ -27,7 +28,7 @@ export default function App() {
   className="mySwiper"
 >
   <SwiperSlide>
-    <SwiperItem text={''} img={img1} background={background1} />
+    <SwiperItem text={''} img1={img1}  img2={img2} background={background1} />
   </SwiperSlide>
   <SwiperSlide>Slide 2</SwiperSlide>
   <SwiperSlide>Slide 3</SwiperSlide>

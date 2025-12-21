@@ -1,4 +1,5 @@
-const SwiperItem = ({text, img, background}) => {
+ import "./slider.css";
+const SwiperItem = ({text, img1, background, img2}) => {
 
 const sliderStyle = {
     backgroundImage: `url(${background})`, // обов'язково url()
@@ -7,13 +8,15 @@ const sliderStyle = {
     width: '100%',                          // якщо потрібно
     height: '100%'                         // задай висоту
 }
-
+ 
+   
     return (
-        <div style={sliderStyle}>
-        <h2>SUMMER SALE GET 30%OFF ON ALL DRESS</h2>
-         <img src={img} alt="" />
-
-        </div>
+        <div style={sliderStyle} className="slider-wrap">
+        <h2 className="title" >SUMMER SALE GET 30%OFF ON ALL DRESS</h2>
+        <button className="btn">Shop Now</button>
+         <img className="img1" src={img1} alt=""/>
+         <img className="img2" src={img2} alt=""/>
+         </div>
     )
 }
 export default SwiperItem
