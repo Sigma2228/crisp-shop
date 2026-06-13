@@ -1,11 +1,21 @@
+*{
+  margin: 0;
+  padding: 0;
+
+}
 .banner-wrap {
-    width: 60vw;
-     display: flex;
+  width: 60vw;
+  display: flex;
   flex-direction: column;
-  align-items: center; 
-  justify-content: start; 
+
+  justify-content: center; 
+  align-items: flex-start;
+
   height: 100vh;
-  text-align: start;
+
+  padding-left: 120px;
+  gap: 20px;
+  margin-bottom: 50px;
 }
 .banner-title {
 font-family: 'Oswald';
@@ -14,7 +24,7 @@ font-size: 56px;
 line-height: 72px;
 letter-spacing: 0%;
 text-transform: uppercase;
-transform: translateX(-230px);
+
 }
 .banner-desc {
      font-family: 'Roboto Light';
@@ -23,7 +33,7 @@ font-weight: 400;
 font-size: 25px;
 line-height: 37px;
 letter-spacing: 1%;
-transform: translateX(-210px);
+
 }
 .banner-btn {
   border: 2px solid #000000;
@@ -39,7 +49,7 @@ text-align: center;
 vertical-align: middle;
 text-transform: uppercase;
 color: #000000;
-transform: translateX(-440px);
+
 }
 .banner-btn:hover {
   border: 2px solid #000000;

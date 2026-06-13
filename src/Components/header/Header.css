@@ -1,7 +1,15 @@
+* {
+    box-sizing: border-box;
+padding: 0;
+    margin: 0;
+}
 header {
     width: 100vw;
     background-color: #000000;
-
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 #header-list {
     display: flex;
@@ -14,6 +22,8 @@ header {
 }
 .header-li {
     margin-left: 25px;
+    color: #ffffff;
+    list-style: none;
 }
 #sign-wrap {
     display: flex;

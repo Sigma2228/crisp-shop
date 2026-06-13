@@ -1,64 +1,93 @@
-.card {
-  position: relative;
-}
-
 .card-wrap {
   display: flex;
-  flex-wrap: wrap;
+
+  gap: 30px;
+
+  
+
+  margin: 50px auto;
 }
 
-.card-btn {
-  background: transparent;
-  border: 2px solid #000000;
-  border-radius: 0px;
-  width: 175px;
-height: 56px;
-opacity: 1;
-font-family: 'Oswald', sans-serif;
-font-weight: 500;
-font-size: 18px;
-line-height: 100%;
-letter-spacing: 0.5px;
-text-align: center;
-vertical-align: middle;
-text-transform: uppercase;
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 50%;
+}
 
+.right {
+  position: relative;
+  width: 50%;
+  height: 630px;
+  overflow: hidden;
+}
+
+.cardd {
+  width: 1100px;
+  height: 500px;
+  position: relative;
+  
+  overflow: hidden;
+  
 }
 
 .img {
-    width: 100%;
-  height: 400px;
-  background-size: cover;
-  background-position: center; 
-  background-repeat: no-repeat;
-  height: 434px;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  
 }
+#img1 {
+ background: linear-gradient(270deg, rgba(241, 239, 240, 0) 0%, #F1F0F0 10.79%, #F3F0EF 98.67%);
 
-#card1 .title {
-    font-size: 20px;
+}
+#img2 {
+ background: linear-gradient(90deg, #F7E0D5 0%, #F3DCD2 83.85%, rgba(243, 220, 210, 0.14) 100%);
+
+ 
+}
+#img3 {
+  background: linear-gradient(90deg, #E0DED3 0%, #E0DDD5 86.82%, #E0DDD5 100%);
+
 }
 
 .card-content {
-    
-    position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  position: absolute;
+  top: 150px;
+  left: 150px;
+  z-index: 5;
 }
 
-.title {
-    position: absolute;
-    left: 700px;
-  font-family: 'Oswald', sans-serif;
-  font-weight: 600;
-  font-size: 96px;
-  line-height: 110px;
+.big-content {
+  top: 300px;
+  left: 0;
+}
+
+.card-content h2 {
+  font-size: 48px;
+  line-height: 1;
+  font-weight: 700;
+  max-width: 300px;
+  margin-bottom: 15px;
   text-transform: uppercase;
 }
 
-.desc {
-  font-family: 'Roboto', sans-serif;
-  font-size: 25px;
+.big-content h2 {
+  font-size: 72px;
+  max-width: 400px;
+}
+
+.card-content p {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+.card-content button {
+  padding: 14px 30px;
+  border: 2px solid black;
+  background: transparent;
+  color: black;
+  cursor: pointer;
+  font-weight: 700;
 }

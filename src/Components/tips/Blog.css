@@ -1,0 +1,30 @@
+.blog-wrap {
+    display: flex;
+
+    gap: 15px;
+    background-color: whitesmoke;
+}
+.blog-title {
+    font-family: 'Oswald';
+font-weight: 400;
+font-size: 26px;
+line-height: 100%;
+letter-spacing: 0%;
+vertical-align: middle;
+margin-bottom: 100px;
+margin-top: 50px;
+}
+.blog-card {
+    width: 447px;
+height: 420px;
+ display: flex;
+ flex-direction: column;
+    background-color: #ffffff;
+}
+.blog-desc {
+    font-family: 'Roboto';
+font-weight: 400;
+font-size: 16px;
+line-height: 24px;
+letter-spacing: 1%;
+}
