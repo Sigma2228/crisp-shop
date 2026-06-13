@@ -34,20 +34,19 @@
   width: 100%;
     position: relative;
 }
-.title {
+.span-title {
   width: 504px;
-
-   position: absolute;
-    top: 104px; 
-    left: 234px;
-
-   font-family: 'Oswald', sans-serif;
-   text-align: center;
-  font-weight: 600;
-  font-size: 86px;
-  line-height: 96px;
-  letter-spacing: 0;
-  text-transform: uppercase;
+  height: 288px;
+  top: 130px;
+  left: 150px;
+  z-index: 999;
+  position: absolute;
+ font-family: 'Oswald';
+font-weight: 600;
+font-size: 86px;
+line-height: 96px;
+letter-spacing: 0%;
+text-transform: uppercase;
 
 }
 .btn {
@@ -74,8 +73,10 @@ color: #000000;
 .img1 {
   position: relative;
   left: 100px;
+  
 }
 .img2 {
   position: absolute;
   right: 250px;
+  
 }

@@ -3,5 +3,12 @@
 }
 .list {
     display: flex;
+    flex-direction: row;
     flex-wrap: wrap;
+}
+.card {
+width: 354px;
+height: 450px;
+opacity: 1;
+margin-bottom: 100px;
 }

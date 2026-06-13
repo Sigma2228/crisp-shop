@@ -12,7 +12,7 @@ const sliderStyle = {
    
     return (
         <div style={sliderStyle} className="slider-wrap">
-        <h2 className="title" >SUMMER SALE GET 30%OFF ON ALL DRESS</h2>
+        <h2 className="span-title" >SUMMER SALE GET 30%OFF ON ALL DRESS</h2>
         <button className="btn">Shop Now</button>
          <img className="img1" src={img1} alt=""/>
          <img className="img2" src={img2} alt=""/>
