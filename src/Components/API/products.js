@@ -31,5 +31,5 @@ export const getCategories = async () => {
     }
     catch (error) {
         console.log(error.message);
-    } axios.get(`${URL}/categories`)
+    } 
 }
