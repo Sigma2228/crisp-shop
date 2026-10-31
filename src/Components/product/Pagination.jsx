@@ -1,28 +1,32 @@
-import { useState } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import ProductList from "./ProductList";
-import data from "../../data/productsData.json"
-
+import data from "../../data/productsData.json";
+import { loadMore } from "../../store/paginationSlice";
 
 function Pagination() {
-   const [page, setPage] = useState(0);
-  const perPage = 4;
+  const dispatch = useDispatch();
+
+  const { page, perPage } = useSelector(
+    state => state.pagination
+  );
+
   const productsToShow = data.data.slice(0, page * perPage);
-const hasMore = productsToShow.length < data.data.length;
-   return (
+  const hasMore = productsToShow.length < data.data.length;
+
+  return (
     <>
       <ProductList
         title="Products"
         products={productsToShow}
       />
 
-      {hasMore ? (
-        <button onClick={() => setPage(prev => prev + 1)}>
+      {hasMore && (
+        <button onClick={() => dispatch(loadMore())}>
           Load more
         </button>
-      ) : null}
-       
-      
+      )}
     </>
   );
 }
-export default Pagination
+
+export default Pagination;
