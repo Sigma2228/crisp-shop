@@ -4,6 +4,7 @@ const URL = 'https://fakestoreapi.com/users';
 
 export const getAllUsers = async () => {
     try {
+        
         const response = await axios.get(URL);
         return response.data; // Ось тут ваші користувачі
     } catch (error) {

@@ -13,13 +13,8 @@ export const getAllProducts = async () => {
 
 };
 export const getProductById = async (id) => {
-    try {
-        const response = await axios.get(`${URL}/${id}`)
-        return response.data
-    }
-    catch (error) {
-        console.log(error.message);
-    }
+    const response = await axios.get(`${URL}/${id}`)
+    return response.data
 }
 
 
@@ -31,5 +26,5 @@ export const getCategories = async () => {
     }
     catch (error) {
         console.log(error.message);
-    } axios.get(`${URL}/categories`)
+    } 
 }

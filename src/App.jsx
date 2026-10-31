@@ -1,33 +1,35 @@
 import './App.css'
-import { useState } from 'react'
-import HomePage from './pages/HomePage.jsx'
 import Header from './Components/header/Header.jsx'
-import RegistrationPage from './pages/RegistrationpPage.jsx'
-import Products from './pages/Products.jsx'
-import ProductList from './Components/product/ProductList.jsx'
-import CatalogPage from './pages/CatalogPage.jsx'
-import Footer from './Components/footer/footer.jsx'
-import Login from './pages/Login.jsx'
 
-import {  Routes, Route, Link } from "react-router-dom";
+import { lazy, Suspense } from 'react'
+import { Routes, Route } from 'react-router-dom'
+
+const HomePage = lazy(() => import('./pages/HomePage.jsx'))
+const RegistrationPage = lazy(() => import('./pages/RegistrationpPage.jsx'))
+const Products = lazy(() => import('./pages/Products.jsx'))
+const CatalogPage = lazy(() => import('./pages/CatalogPage.jsx'))
+const Login = lazy(() => import('./pages/Login.jsx'))
+const ProductDetails = lazy(() => import('./pages/ProductDetails.jsx'))
+
 function App() {
- 
-   return (
+  return (
     <>
-    <Header />
-    
+      <Header />
 
-     
+      <Suspense fallback={<div>Завантаження...</div>}>
+        <Routes>
+          <Route path='login' element={<Login />} />
+          <Route path="/" element={<HomePage />} />
 
-      <Routes>
-        <Route path='login' element={<Login />} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/registration" element={<RegistrationPage />} />
-        <Route path="/catalog" element={<CatalogPage />} />
-      </Routes>
+          <Route path="/products" element={<Products />} />
+          <Route path="/products/:id" element={<ProductDetails />} />
+
+          <Route path="/registration" element={<RegistrationPage />} />
+          <Route path="/catalog" element={<CatalogPage />} />
+        </Routes>
+      </Suspense>
     </>
-  );
+  )
 }
 
 export default App

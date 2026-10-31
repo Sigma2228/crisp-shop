@@ -1,39 +1,87 @@
-import { useState, useEffect } from "react";
+import { useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, useSearchParams } from "react-router-dom";
+import { fetchProducts } from "../store/productsSlice";
 import "./Products.css";
-import { getAllProducts } from "../Components/API/products";
 
 const Products = () => {
-  const [products, setProducts] = useState([]);
+  const dispatch = useDispatch();
+
+  const { items: products, loading, error } = useSelector(
+    (state) => state.products
+  );
+
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const sortOrder = searchParams.get("sort") || "";
+  const search = searchParams.get("search") || "";
 
   useEffect(() => {
-    const fetchProducts = async () => {
-      const response = await getAllProducts();
+    dispatch(fetchProducts());
+  }, [dispatch]);
 
-      
-       setProducts(response);
-    };
+  const handleSearch = (e) => {
+    const params = new URLSearchParams(searchParams);
 
-    fetchProducts();
-  }, []);
+    if (e.target.value) {
+      params.set("search", e.target.value);
+    } else {
+      params.delete("search");
+    }
+
+    setSearchParams(params);
+  };
 
   const handleSortPlusMinus = () => {
-    const sortedProducts = [...products];
-
-    sortedProducts.sort((a, b) => a.price - b.price);
-
-    setProducts(sortedProducts);
+    const params = new URLSearchParams(searchParams);
+    params.set("sort", "asc");
+    setSearchParams(params);
   };
 
   const handleSortMinusPlus = () => {
-    const sortedProducts = [...products];
-
-    sortedProducts.sort((a, b) => b.price - a.price);
-
-    setProducts(sortedProducts);
+    const params = new URLSearchParams(searchParams);
+    params.set("sort", "desc");
+    setSearchParams(params);
   };
+
+  const filteredAndSortedProducts = useMemo(() => {
+    let result = [...products];
+
+    if (search) {
+      result = result.filter((product) =>
+        product.title.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (sortOrder === "asc") {
+      result.sort((a, b) => a.price - b.price);
+    }
+
+    if (sortOrder === "desc") {
+      result.sort((a, b) => b.price - a.price);
+    }
+
+    return result;
+  }, [products, search, sortOrder]);
+
+  if (loading) {
+    return <p>Завантаження товарів...</p>;
+  }
+
+  if (error) {
+    return <p>Помилка завантаження товарів: {error}</p>;
+  }
 
   return (
     <>
+      <input
+        className="products-input"
+        type="text"
+        placeholder="Пошук товару..."
+        value={search}
+        onChange={handleSearch}
+      />
+
       <button
         style={{ marginRight: "20px" }}
         onClick={handleSortPlusMinus}
@@ -45,8 +93,8 @@ const Products = () => {
         Sort by price (спочатку дорожчі)
       </button>
 
-      <ul className="list">
-        {products.map((product) => (
+      <ul className="product-list">
+        {filteredAndSortedProducts.map((product) => (
           <div
             className="card"
             key={product._id}
@@ -55,21 +103,29 @@ const Products = () => {
               height: "300px",
             }}
           >
-            <li style={{ listStyle: "none" }}>
-              <img
-                height="150"
-                width="200"
-                src={product.image}
-                alt={product.title}
-              />
+            <li
+              className="product-item"
+              style={{ listStyle: "none" }}
+            >
+              <Link to={`/products/${product.id}`}>
+                <img
+                  className="product-img"
+                  src={product.image}
+                  alt={product.title}
+                />
 
-              <br />
+                <br />
 
-              {product.title}
+                <h5 className="products-title">
+                  {product.title}
+                </h5>
 
-              <br />
+                <br />
 
-              {product.price}$
+                <p className="products-price">
+                  {product.price}$
+                </p>
+              </Link>
             </li>
           </div>
         ))}

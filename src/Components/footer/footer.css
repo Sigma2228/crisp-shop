@@ -5,15 +5,15 @@
 .footer-list {
  display: flex;
  flex-direction: column;
- align-items: center;
  justify-content: space-around;
  list-style: none;
+ align-items: center;
+ margin-top: 100px;
 }
 .footer-wrap {
     display: flex;
     justify-content: space-around;
     flex-direction: row;
-    align-items: center;
 }
 .footer-title {
     font-family: Oswald;
@@ -23,7 +23,7 @@ color: #FFFFFF;
 line-height: 100%;
 letter-spacing: 0%;
 text-transform: uppercase;
-
+margin-bottom: 15px;
 }
 .footer-item {
     font-family: Roboto Medium;

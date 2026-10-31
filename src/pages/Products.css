@@ -1,7 +1,41 @@
 .card {
     display: flex;
 }
-.list {
+.product-list {
     display: flex;
-    gap: 60px;
+    gap: 70px;
+}
+.products-input {
+    margin-right: 15px;
+}
+.product-img {
+    width: 200px;
+    height: 200px;
+    padding-top: 20px;
+}
+.product-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+.products-title {
+    color: #000000;
+font-weight: 500;
+font-size: 18px;
+line-height: 100%;
+letter-spacing: 0px;
+vertical-align: middle;
+text-transform: uppercase;
+margin-top: 18px;
+margin-bottom: 12px;
+}
+.products-price {
+color: #000000;
+font-weight: 500;
+font-size: 22px;
+line-height: 100%;
+letter-spacing: 0px;
+vertical-align: middle;
+text-transform: uppercase;
+margin-top: 18px;
+margin-bottom: 12px;
 }
