@@ -1,4 +1,6 @@
 import React from "react";
+import './Catalog.css'
+import { Link } from "react-router-dom";
 import { getAllProducts } from "../Components/API/products";
 class Products extends React.Component {
     state = {
@@ -45,14 +47,17 @@ class Products extends React.Component {
                     Sort by price(спочатку дорожчі)
                 </button>
 
-                <ul>
+                <ul className="catalog-list">
                     {this.state.filteredProducts.map(product => (
-                        <div className="card" style={{ display: 'flex', flexDirection: 'row', width: '200px', height: '300px' }}>
-                            <li key={product._id} style={{ listStyle: 'none' }}><img height={'150px'} width={'200px'} src={product.image} alt="" />
+                        <div className="card">
+                            <Link to={`/products/${product._id}`}><li key={product._id}><img className="catalog-img" src={product.image} alt="" />
+                            
+                            
                             <br />
-                            {product.title}
+                            <h5 className="catalog-title">{product.title}</h5>
                             <br />
-                            {product.price}$</li>
+                            <p className="catalog-text">{product.price}$</p></li>
+                            </Link>
                         </div>
                     ))}
                 </ul>
